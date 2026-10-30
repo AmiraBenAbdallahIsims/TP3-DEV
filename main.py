@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-
+from pydantic import BaseModel
 import socket
 app = FastAPI()
 
@@ -24,4 +24,17 @@ def greeting(name: str):
         "developer": "Dev2",
         "hostname": hostname,
         "ip": ip
+    }
+
+    
+class Operation(BaseModel):
+    a: float
+    b: float
+
+
+@app.post("/multiply")
+def multiply(operation: Operation):
+    return {
+        "result": operation.a * operation.b,
+        "developer": "Dev1"
     }
