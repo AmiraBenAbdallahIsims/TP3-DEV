@@ -38,3 +38,6 @@ def multiply(operation: Operation):
         "result": operation.a * operation.b,
         "developer": "Dev1"
     }
+@app.get("/soustraction")
+def soustraction(a: float, b: float):
+    return {"result": a - b}
