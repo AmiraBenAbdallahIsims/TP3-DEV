@@ -1,8 +1,9 @@
 
 """Tests unitaires des routes de l'application FastAPI."""
 
-import main
 from fastapi.testclient import TestClient
+
+import main
 
 client = TestClient(main.app)
 
